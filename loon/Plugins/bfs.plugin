@@ -1,0 +1,13 @@
+﻿#!name=BingAI For Safari
+#!desc=bing ai伪装edge浏览器
+#!homepage=https://yfamily.vercel.app/
+#!author=deezertidal
+#!icon=https://yfamily.vercel.app/IMG/bing.png
+
+
+[Script]
+http-request ^https?://www.bing.com requires-body=0,script-path=https://yfamily.vercel.app/module/bfs.js, tag=Bing For Safari
+
+
+[MITM] 
+hostname = www.bing.com
