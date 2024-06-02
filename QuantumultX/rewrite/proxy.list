@@ -1,0 +1,71 @@
+# NAME: MyProxy
+# AUTHOR: Allen
+# REPO: https://github.com/Freakboy
+# UPDATED: 2023/9/19 16:36:38
+
+# 第一块: HOST-SUFFIX: 主机后缀; HOST-KEYWORD: 主机关键字; DOMAIN-SUFFIX: 域名后缀; DOMAIN: 具体域名
+# 第二块: HOST-SUFFIX: ai.com; HOST-KEYWORD: openai; DOMAIN-SUFFIX: ai.com; DOMAIN: chat.openai.com
+# 第三块: 标识: DIRECT: 直连; OpenAI: 自定义的static标签
+# HOST-SUFFIX,ai.com,OpenAI
+# HOST-KEYWORD,openai,OpenAI
+# DOMAIN-SUFFIX,snapdrop.net,DIRECT
+# DOMAIN,download.jetbrains.com,DIRECT
+
+# HOST-SUFFIX,bing.com,DIY
+DOMAIN-SUFFIX,bing.com,OpenAI
+DOMAIN-SUFFIX,google.com,OpenAI
+DOMAIN-SUFFIX,google.dev,OpenAI
+# Google Trust Services
+DOMAIN-SUFFIX,pki.goog,OpenAI
+DOMAIN-SUFFIX,googleusercontent.com,OpenAI
+DOMAIN-SUFFIX,play.googleapis.com,OpenAI
+DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com,OpenAI
+#DOMAIN-SUFFIX,gstatic.com,OpenAI
+DOMAIN-SUFFIX,claude.ai,OpenAI
+DOMAIN-SUFFIX,statsig.com,OpenAI
+DOMAIN,chatgpt.livekit.cloud,OpenAI
+
+# 如开启其他设置中的  “分流匹配优化” 选项，则匹配优先级为👇
+# host > host-suffix > host-keyword(wildcard) > geoip = ip-cidr > user-agennt
+# 完整域名匹配
+;host,www.google.com,proxy
+# 域名关键词匹配
+;host-keyword,adsite,reject
+# 域名后缀匹配
+;host-suffix,ai.com,proxy
+# 域名通配符匹配
+;host-wildcard,*abc.com,proxy
+# 完整域名匹配
+DOMAIN,download.jetbrains.com,DIRECT
+# 域名后缀匹配
+DOMAIN-SUFFIX,jetbrains.com,DIRECT
+# User-Agent 匹配
+;user-agent, ?abc*, proxy
+
+
+
+
+#IP-CIDR,192.168.3.0/24,DIY
+
+# 公司内网直连, /32 代表IP本身的IP-CIDR
+# xray
+IP-CIDR,159.138.142.118/32,DIRECT
+# nessus
+IP-CIDR,159.138.42.252/32,DIRECT
+# goby
+IP-CIDR,119.13.76.212/32,DIRECT
+# bangbang
+IP-CIDR,101.44.65.236/32,DIRECT
+# gophish
+IP-CIDR,159.138.58.51/32,DIRECT
+DOMAIN-SUFFIX,opayweb.com,DIRECT
+DOMAIN-SUFFIX,opaydev.com,DIRECT
+# gophish
+DOMAIN-SUFFIX,ssec.online,DIRECT
+# vps
+IP-CIDR,129.146.81.234/32,DIRECT
+IP-CIDR,129.153.74.192/32,DIRECT
+IP-CIDR,18.216.177.39/32,DIRECT
+DOMAIN,aws.irce.link,DIRECT
+DOMAIN,txy.irce.link,DIRECT
+
