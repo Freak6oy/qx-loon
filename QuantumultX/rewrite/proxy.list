@@ -3,6 +3,9 @@
 # REPO: https://github.com/Freakboy
 # UPDATED: 2023/9/19 16:36:38
 
+# 如开启其他设置中的  “分流匹配优化” 选项，则匹配优先级为👇
+# host > host-suffix > host-keyword(wildcard) > geoip = ip-cidr > user-agennt
+
 # 第一块: HOST-SUFFIX: 主机后缀; HOST-KEYWORD: 主机关键字; DOMAIN-SUFFIX: 域名后缀; DOMAIN: 具体域名
 # 第二块: HOST-SUFFIX: ai.com; HOST-KEYWORD: openai; DOMAIN-SUFFIX: ai.com; DOMAIN: chat.openai.com
 # 第三块: 标识: DIRECT: 直连; OpenAI: 自定义的static标签
@@ -28,8 +31,6 @@ DOMAIN,chatgpt.livekit.cloud,OpenAI
 # 错误分流
 DOMAIN-SUFFIX,t.me,proxy
 
-# 如开启其他设置中的  “分流匹配优化” 选项，则匹配优先级为👇
-# host > host-suffix > host-keyword(wildcard) > geoip = ip-cidr > user-agennt
 # 完整域名匹配
 ;host,www.google.com,proxy
 # 域名关键词匹配
